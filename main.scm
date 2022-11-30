@@ -17,8 +17,11 @@
 (define (flatten listToFlatten)
     (if (null? listToFlatten) listToFlatten
         (if (> (length listToFlatten) 0)
-            ()
-        )
+            (flatten (cdr listToFlatten))
+            ())
+    ;; look at first element, check if it's a list
+        ;; if it's a list...
+        ;; otherwise...
 
 ;; (define (zip list1 list2))
 
