@@ -9,5 +9,11 @@
         (if (equal? element (car listToSearch)) #t
             (member? element (cdr listToSearch)))))
 
+(define (member1 element listToSearch)
+    (if (null? listToSearch) #f
+        (if (equal? element (car listToSearch)) listToSearch
+            (member1 element (cdr listToSearch)))))
+
 ;; (append1 '(1 2 3 4) '(a b c d e))
 ;; (member? 'a '(a 1 2 3 b))
+(member1 'a '(1 2 3 a b c))
