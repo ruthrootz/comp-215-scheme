@@ -1,6 +1,7 @@
 (define (append1 list1 list2)
-  (if (null? list1) list2
-      (if (null? list2) list1
+  (if (null? list1) list2 ;; return list2 if list1 is empty
+      (if (null? list2) list1 ;; return list1 if list2 is empty
+          ;; if the lists aren't empty, create a new list by calling append1 recursively
           (cons (car list1) (append1 (cdr list1) list2)))))
 
 (append1 '(1 2 3 4) '(a b c d e))
