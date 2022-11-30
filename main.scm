@@ -14,6 +14,15 @@
         (if (equal? element (car listToSearch)) listToSearch
             (member1 element (cdr listToSearch)))))
 
+(define (flatten listToFlatten)
+    (if (null? listToFlatten) listToFlatten
+        (if (> (length listToFlatten) 0)
+            ()
+        )
+
+;; (define (zip list1 list2))
+
 ;; (append1 '(1 2 3 4) '(a b c d e))
 ;; (member? 'a '(a 1 2 3 b))
-(member1 'a '(1 2 3 a b c))
+;; (member1 'a '(1 2 3 a b c))
+(flatten '(a b c (1 2 3) car ((4 5 6) (d e f))))
