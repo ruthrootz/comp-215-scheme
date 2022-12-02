@@ -15,12 +15,14 @@
         (member1 element (cdr listToSearch))))) ; element was found, return the rest of the list
 
 (define (flatten listToFlatten)
-    (if (null? listToFlatten) '()
-        (if (list? listToFlatten)
-            (append1 (car listToFlatten) (flatten (cdr listToFlatten)))
-        (flatten listToFlatten))))
+    (if (> (length listToFlatten) 0) listToFlatten
+    (append1 (car listToFlatten) (flatten (cdr listToFlatten)))))
+
+
 
 ;; (define (zip list1 list2))
+
+
 
 ;; (append1 '(1 2 3 4) '(a b c d e))
 ;; (member? 'a '(a 1 2 3 b))
