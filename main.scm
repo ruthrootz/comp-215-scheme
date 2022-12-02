@@ -1,6 +1,6 @@
 ;; Name: Ruth Oldja
 ;; Date: 12/1/2022
-;; purpose: functions for baic opperations on lists
+;; purpose: functions for basic opperations on lists
 
 (define (append1 list1 list2)
     (if (null? list1) list2 ;; return list2 if list1 is empty
@@ -10,8 +10,8 @@
 
 (define (member? element listToSearch)
     (if (null? listToSearch) #f
-        (if (equal? element (car listToSearch)) #t
-        (member? element (cdr listToSearch)))))
+        (if (equal? element (car listToSearch)) #t ;; found the element!
+        (member? element (cdr listToSearch))))) ;; if element not found, keep searching
 
 (define (member1 element listToSearch)
     (if (null? listToSearch) #f ;; list is empty, and the element wasn't found
@@ -25,8 +25,6 @@
             (append1 (flatten (car listToFlatten)) (flatten (cdr listToFlatten)))
         ;; else if the head element is not a list...
         (cons (car listToFlatten) (flatten (cdr listToFlatten))))))
-
-
 
 (define (zip list1 list2)
     (cond
