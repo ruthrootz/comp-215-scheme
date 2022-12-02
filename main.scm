@@ -24,11 +24,15 @@
 
 
 
-;; (define (zip list1 list2))
+(define (zip list1 list2)
+    (cond
+        [(null? list1) '()]
+        [(null? list2) '()]
+        [else (zip (cdr list1) (cdr list2)) (cons (car list1) (car list2))]))
 
-
-
-;; (append1 '(1 2 3 4) '(a b c d e))
+;; TESTS
+;; (append1 '(1 2 3 4) '(a b c d e f g))
 ;; (member? 'a '(a 1 2 3 b))
 ;; (member1 'a '(1 2 3 a b c))
 ;; (flatten '(a b c (1 2 3) bat ((4 5 6) (d e f))))
+(zip '(1 2 3) '(a b c))
