@@ -17,7 +17,7 @@
 (define (flatten listToFlatten)
     (if (null? listToFlatten) '()
         ;; if the head element is a list...
-        (if (pair? (car listToFlatten))
+        (if (list? (car listToFlatten))
             (append1 (flatten (car listToFlatten)) (flatten (cdr listToFlatten)))
         ;; else if the head element is not a list...
         (cons (car listToFlatten) (flatten (cdr listToFlatten))))))
