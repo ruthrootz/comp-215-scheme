@@ -28,9 +28,9 @@
     (cond
         [(null? list1) '()]
         [(null? list2) '()]
+        [(or (null? (cdr list1)) (null? (cdr list2))) (cons (car list1) (car list2))]
         [else
-             (zip (cdr list1) (cdr list2))
-             (cons (car list1) (car list2))]))
+             (zip (cdr list1) (cdr list2))]))
 
 ;; TESTS
 ;; (append1 '(1 2 3 4) '(a b c d e f g))
