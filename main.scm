@@ -1,27 +1,24 @@
 (define (append1 list1 list2)
     (if (null? list1) list2 ;; return list2 if list1 is empty
         (if (null? list2) list1 ;; return list1 if list2 is empty
-            ;; if the lists aren't empty, create a new list by calling append1 recursively
-            (cons (car list1) (append1 (cdr list1) list2)))))
+        ;; if the lists aren't empty, create a new list by calling append1 recursively
+        (cons (car list1) (append1 (cdr list1) list2)))))
 
 (define (member? element listToSearch)
     (if (null? listToSearch) #f
         (if (equal? element (car listToSearch)) #t
-            (member? element (cdr listToSearch)))))
+        (member? element (cdr listToSearch)))))
 
 (define (member1 element listToSearch)
-    (if (null? listToSearch) #f
+    (if (null? listToSearch) #f ; list is empty, and the element wasn't found
         (if (equal? element (car listToSearch)) listToSearch
-            (member1 element (cdr listToSearch)))))
+        (member1 element (cdr listToSearch))))) ; element was found, return the rest of the list
 
 (define (flatten listToFlatten)
-    (if (null? listToFlatten) listToFlatten
-        (if (> (length listToFlatten) 0)
-            (flatten (cdr listToFlatten))
-            ())
-    ;; look at first element, check if it's a list
-        ;; if it's a list...
-        ;; otherwise...
+    (if (null? listToFlatten) '()
+        (if (list? listToFlatten)
+            (append1 (car listToFlatten) (flatten (cdr listToFlatten)))
+        (flatten listToFlatten))))
 
 ;; (define (zip list1 list2))
 
