@@ -15,8 +15,10 @@
         (member1 element (cdr listToSearch))))) ; element was found, return the rest of the list
 
 (define (flatten listToFlatten)
-    (if (> (length listToFlatten) 0) listToFlatten
-    (append1 (car listToFlatten) (flatten (cdr listToFlatten)))))
+    (if (null? listToFlatten) '()
+        (if (pair? (car listToFlatten))
+            (append1 (flatten (car listToFlatten)) (flatten (cdr listToFlatten)))
+        (cons (car listToFlatten) (flatten (cdr listToFlatten))))))
 
 
 
@@ -27,4 +29,4 @@
 ;; (append1 '(1 2 3 4) '(a b c d e))
 ;; (member? 'a '(a 1 2 3 b))
 ;; (member1 'a '(1 2 3 a b c))
-(flatten '(a b c (1 2 3) car ((4 5 6) (d e f))))
+(flatten '(a b c (1 2 3) bat ((4 5 6) (d e f))))
