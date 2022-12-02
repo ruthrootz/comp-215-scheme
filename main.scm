@@ -10,14 +10,16 @@
         (member? element (cdr listToSearch)))))
 
 (define (member1 element listToSearch)
-    (if (null? listToSearch) #f ; list is empty, and the element wasn't found
+    (if (null? listToSearch) #f ;; list is empty, and the element wasn't found
         (if (equal? element (car listToSearch)) listToSearch
-        (member1 element (cdr listToSearch))))) ; element was found, return the rest of the list
+        (member1 element (cdr listToSearch))))) ;; element was found, return the rest of the list
 
 (define (flatten listToFlatten)
     (if (null? listToFlatten) '()
+        ;; if the head element is a list...
         (if (pair? (car listToFlatten))
             (append1 (flatten (car listToFlatten)) (flatten (cdr listToFlatten)))
+        ;; else if the head element is not a list...
         (cons (car listToFlatten) (flatten (cdr listToFlatten))))))
 
 
